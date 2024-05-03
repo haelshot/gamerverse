@@ -35,8 +35,6 @@ FILE_UPLOAD_HANDLERS = ["django.core.files.uploadhandler.MemoryFileUploadHandler
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -105,7 +103,7 @@ if DEPLOYMENT_TIER not in ('dev', 'prod', 'local'):
 if DEPLOYMENT_TIER == 'prod':
 
     BASE_URL = 'http://127.0.0.1:8000/api/v1/'
-    API_URL = 'https://api.gamerverse.us/v1/'
+    API_URL = 'https://gamerverse.onrender.com/v1/'
 
     CORS_ALLOW_METHODS = ['DELETE', 'GET', 'OPTIONS', 'PATCH', 'POST', 'PUT', ]
     CORS_ALLOW_HEADERS = ['accept', 'accept-encoding', 'authorization', 'content-type', 'dnt', 'origin', 'user-agent',
@@ -120,7 +118,9 @@ if DEPLOYMENT_TIER == 'prod':
         "https://app.infranergy.us"
     ]
 
-    ALLOWED_HOSTS = ['api.infranergy.us', '127.0.0.1']
+    # ALLOWED_HOSTS = ['api.infranergy.us', '127.0.0.1']
+    ALLOWED_HOSTS = ['gamerverse.onrender.com','127.0.0.1', 'localhost']
+
 
     DEBUG = False
     if None in (DB_HOST, DB_USER, DB_PASSWORD, DB_HOST):
@@ -142,9 +142,11 @@ elif DEPLOYMENT_TIER in ('dev', 'local'):
     DEBUG = True
 
     BASE_URL = 'http://127.0.0.1:8000/api/v1/'
-    API_URL = 'https://api.gamerverse.us/v1/'
+    API_URL = 'https://gamerverse.onrender.com/v1/'
 
-    ALLOWED_HOSTS = ['3.138.183.140', '127.0.0.1', 'localhost']
+    ALLOWED_HOSTS = ['gamerverse.onrender.com','127.0.0.1', 'localhost']
+
+    # ALLOWED_HOSTS = ['3.138.183.140', '127.0.0.1', 'localhost']
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
