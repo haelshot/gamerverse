@@ -115,12 +115,16 @@ class UserVerificationToken(models.Model):
 
 
 class WagerBids(models.Model):
+    BIDCHOICES = (
+        ('wager_bidder', 'wager_bidder'),
+        ('wager_accepter', 'wager_accepter'),
+    )
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    wager_bidder = models.ForeignKey(User, on_delete=models.PROTECT)
-    wager_accepter = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
-    wager_amount = models.DecimalField()
+    wager_user_type =  models.CharField(max_length=20, choices=BIDCHOICES)
+    wager_user = models.ForeignKey(User, on_delete=models.PROTECT)
+    wager_amount = models.DecimalField(max_digits=12, decimal_places=4)
     is_accepted = models.BooleanField(default=False)
     is_deleted = models.BooleanField(default=False)
 
