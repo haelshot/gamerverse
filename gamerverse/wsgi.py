@@ -16,16 +16,16 @@ from ninja import NinjaAPI
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "gamerverse.settings")
 
 application = get_wsgi_application()
-django_asgi = get_asgi_application()
-from api import api as api_router
+# django_asgi = get_asgi_application()
+# from api import api as api_router
 
-# Create a Ninja API instance
-api = NinjaAPI()
-api.add_router('api', api_router)
+# # Create a Ninja API instance
+# api = NinjaAPI()
+# api.add_router('api', api_router)
 
-# Combine Django ASGI application and Ninja API
-def application(scope):
-    if scope['type'] == 'http':
-        return django_asgi(scope)
-    elif scope['type'] == 'websocket':
-        return api(scope)
+# # Combine Django ASGI application and Ninja API
+# def application(scope):
+#     if scope['type'] == 'http':
+#         return django_asgi(scope)
+#     elif scope['type'] == 'websocket':
+#         return api(scope)
