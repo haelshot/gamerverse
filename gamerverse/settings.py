@@ -103,7 +103,7 @@ if DEPLOYMENT_TIER not in ('dev', 'prod', 'local'):
 if DEPLOYMENT_TIER == 'prod':
 
     BASE_URL = 'http://127.0.0.1:8000/api/v1/'
-    API_URL = 'https://gamerverse.onrender.com/v1/'
+    API_URL = 'https://gamerverse.onrender.com'
 
     CORS_ALLOW_METHODS = ['DELETE', 'GET', 'OPTIONS', 'PATCH', 'POST', 'PUT', ]
     CORS_ALLOW_HEADERS = ['accept', 'accept-encoding', 'authorization', 'content-type', 'dnt', 'origin', 'user-agent',
@@ -139,7 +139,7 @@ elif DEPLOYMENT_TIER in ('dev', 'local'):
     DEBUG = True
 
     BASE_URL = 'http://127.0.0.1:8000/api/v1/'
-    API_URL = 'https://gamerverse.onrender.com/v1/'
+    API_URL = 'https://gamerverse.onrender.com'
 
     ALLOWED_HOSTS = ['gamerverse.onrender.com','127.0.0.1', 'localhost']
 
