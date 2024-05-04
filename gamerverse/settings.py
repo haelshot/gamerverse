@@ -111,14 +111,11 @@ if DEPLOYMENT_TIER == 'prod':
     CORS_ALLOW_CREDENTIALS = True
     CORS_ORIGIN_WHITELIST = [
         "http://localhost:5173",
-        "https://app.infranergy.us"
     ]
     CORS_ALLOWED_ORIGINS = [
         "http://localhost:5173",
-        "https://app.infranergy.us"
     ]
 
-    # ALLOWED_HOSTS = ['api.infranergy.us', '127.0.0.1']
     ALLOWED_HOSTS = ['gamerverse.onrender.com','127.0.0.1', 'localhost']
 
 
